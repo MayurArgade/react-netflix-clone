@@ -1,8 +1,8 @@
 function Splash({ onSelectProfile }) {
   const profiles = [
-    { name: "You", avatar: "https://i.pravatar.cc/150?img=3" },
-    { name: "Friend", avatar: "https://i.pravatar.cc/150?img=5" },
-    { name: "Sibling", avatar: "https://i.pravatar.cc/150?img=7" },
+ { name: "Other", avatar: "/redman.jpg" },
+  { name: "GF", avatar: "/red.jpg" },
+  { name: "Me", avatar: "/yellow.jpg" },
   ];
 
   return (
