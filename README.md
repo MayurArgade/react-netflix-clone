@@ -1,12 +1,70 @@
-# React + Vite
+# 🎬 Netflix Clone – React + TMDB API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Netflix‑style web application built with **React.js** that lets users browse movies, filter by mood, and even save films to a personal **Watch Later** list.  
+Powered by **TMDB API**, styled with a Netflix‑inspired UI, and deployed on **Netlify**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
+🔗 [View Website](https://raeact-netlix.netlify.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🎭 **Mood Filter** – Discover movies based on your mood (Action, Chill, Romantic, etc.)
+- 🎞 **Watch Later** – Save your favorite movies to watch anytime
+- 🔍 **Search Bar** – Quickly find movies by name
+- 📽 **Dynamic Trailers** – Watch official trailers directly (via TMDB API)
+- 📱 **Responsive Design** – Works seamlessly on desktop & mobile
+- 🎨 **Netflix‑like UI/UX** – Dark theme, hover effects, smooth animations
+
+---
+
+## 🛠 Tech Stack
+
+- ⚛️ **React.js** – Frontend framework  
+- 🎬 **TMDB API** – Movie data & trailers  
+- 🎨 **Tailwind CSS** – Styling & responsiveness  
+- 🔥 **Framer Motion** – Animations  
+- 🚀 **Netlify** – Hosting & deployment  
+
+---
+
+## 📸 Screenshots
+
+### 🔹 Homepage
+![Homepage Screenshot](https://via.placeholder.com/800x400.png?text=Homepage+Screenshot)
+
+### 🔹 Movie Detail Page
+![Movie Detail Screenshot](https://via.placeholder.com/800x400.png?text=Movie+Detail+Screenshot)
+
+### 🔹 Watch Later
+![Watch Later Screenshot](https://via.placeholder.com/800x400.png?text=Watch+Later+Screenshot)
+
+*(Replace with your actual screenshots)*
+
+---
+
+## ⚡ Installation & Setup
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/MayurArgade/react-netflix-clone.git
+
+Install dependencies:
+npm install
+Add your TMDB API Key in utils/tmdb.js
+Run locally:
+npm start
+Build for production:
+npm run build
+
+🚀 Deployment
+This project is deployed on Netlify.
+Every push to main branch auto‑deploys the latest version.
+
+👨‍💻 Author
+Mayur Argade
+
+GitHub: @MayurArgade
