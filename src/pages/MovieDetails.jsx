@@ -128,7 +128,7 @@ function MovieDetails() {
   if (loading) return <p className="text-white">Loading...</p>;
 
   return (
-    <div className="p-6 pt-20 bg-zinc-900 min-h-screen text-white">
+    <div className="p-6 pt-20 bg-[#141414] min-h-screen text-white">
       {/* Movie Info */}
       <div className="flex flex-col md:flex-row gap-6">
         <img
