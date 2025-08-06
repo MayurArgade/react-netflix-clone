@@ -181,94 +181,110 @@ function MovieDetails() {
           hover:scale-[1.01] hover:border-red-500/50"
           />
 
-          <div className="flex items-center gap-2 mt-2">
-            <label className="flex items-center gap-1 text-sm">
-              <input
-                type="checkbox"
-                checked={isSpoiler}
-                onChange={(e) => setIsSpoiler(e.target.checked)}
-              />
-              Mark as Spoiler
-            </label>
-            <button
-              onClick={handleAddComment}
-              className="px-4 py-2 bg-red-600 rounded hover:bg-red-700"
-            >
-              Post
-            </button>
-          </div>
-        </div>
-
-        {/* Comment List */}
-        <div className="space-y-4">
-          {sortedComments.map((c) => (
+        <div className="flex items-center gap-4 mt-2">
+          {/* Spoiler Toggle */}
+          <div className="flex items-center gap-2">
             <div
-              key={c.id}
-              className="bg-zinc-800 p-3 rounded hover:bg-zinc-700 transition flex gap-3"
+              onClick={() => setIsSpoiler(!isSpoiler)}
+              className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-all duration-300
+                ${isSpoiler ? "bg-red-500/80" : "bg-gray-600/60"} 
+              `}
             >
-              {/* Voting */}
-              <div className="flex flex-col items-center text-gray-400">
-                <button onClick={() => handleVote(c.id, "up")} className="hover:text-green-400">
-                  <ArrowUp size={20} />
-                </button>
-                <span className="text-sm font-bold">{c.votes}</span>
-                <button onClick={() => handleVote(c.id, "down")} className="hover:text-red-400">
-                  <ArrowDown size={20} />
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1">
-                <p className={`font-bold ${c.color}`}>
-                  {c.user}{" "}
-                  {c.badge && <span className="ml-2 text-xs bg-red-600 px-2 py-1 rounded">{c.badge}</span>}
-                </p>
-
-                {c.spoiler ? (
-                  <details>
-                    <summary className="cursor-pointer text-red-400">
-                      ⚠️ Spoiler (click to reveal)
-                    </summary>
-                    <p className="mt-1">{c.text}</p>
-                  </details>
-                ) : (
-                  <p className="mt-1">{c.text}</p>
-                )}
-
-                <span className="text-xs text-gray-400 block mt-1">
-                  {new Date(c.date).toLocaleString()}
-                </span>
-
-                {/* Reactions */}
-                <div className="flex gap-2 mt-2 text-sm">
-                  <button onClick={() => handleReaction(c.id, "fire")}>🔥 {c.reactions?.fire || 0}</button>
-                  <button onClick={() => handleReaction(c.id, "lol")}>😂 {c.reactions?.lol || 0}</button>
-                  <button onClick={() => handleReaction(c.id, "sad")}>😢 {c.reactions?.sad || 0}</button>
-                  <button onClick={() => handleReaction(c.id, "like")}>👍 {c.reactions?.like || 0}</button>
-                </div>
-
-                {/* Replies */}
-                <details className="mt-2">
-                  <summary className="cursor-pointer flex items-center gap-1 text-sm text-blue-400">
-                    <MessageCircle size={14} /> Reply
-                  </summary>
-                  <div className="mt-2">
-                    <ReplyForm onReply={(txt) => handleReply(c.id, txt)} />
-                    {c.replies?.map((r, idx) => (
-                      <p key={idx} className="ml-4 text-gray-300 text-sm mt-1">
-                        <span className="font-semibold text-blue-400">{r.user}: </span>
-                        {r.text}
-                      </p>
-                    ))}
-                  </div>
-                </details>
-              </div>
+              <div
+                className={`w-4 h-4 rounded-full bg-white shadow-md transform transition-all duration-300
+                  ${isSpoiler ? "translate-x-6" : "translate-x-0"}
+                `}
+              />
             </div>
-          ))}
+            <span className="text-sm text-gray-300 select-none">
+              {isSpoiler ? "⚠️ Spoiler ON" : "Spoiler"}
+            </span>
+          </div>
+
+          {/* Post Button */}
+          <button
+            onClick={handleAddComment}
+            className="px-5 py-2 rounded-lg bg-red-600/90 text-white font-medium
+                       shadow-md shadow-red-600/40
+                       transition-all duration-300 ease-out
+                       hover:bg-red-500 hover:shadow-lg hover:shadow-red-500/60
+                       active:scale-95"
+          >
+            Post
+          </button>
         </div>
       </div>
+
+      {/* Comment List */}
+      <div className="space-y-4">
+        {sortedComments.map((c) => (
+          <div
+            key={c.id}
+            className="bg-zinc-800 p-3 rounded hover:bg-zinc-700 transition flex gap-3"
+          >
+            {/* Voting */}
+            <div className="flex flex-col items-center text-gray-400">
+              <button onClick={() => handleVote(c.id, "up")} className="hover:text-green-400">
+                <ArrowUp size={20} />
+              </button>
+              <span className="text-sm font-bold">{c.votes}</span>
+              <button onClick={() => handleVote(c.id, "down")} className="hover:text-red-400">
+                <ArrowDown size={20} />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1">
+              <p className={`font-bold ${c.color}`}>
+                {c.user}{" "}
+                {c.badge && <span className="ml-2 text-xs bg-red-600 px-2 py-1 rounded">{c.badge}</span>}
+              </p>
+
+              {c.spoiler ? (
+                <details>
+                  <summary className="cursor-pointer text-red-400">
+                    ⚠️ Spoiler (click to reveal)
+                  </summary>
+                  <p className="mt-1">{c.text}</p>
+                </details>
+              ) : (
+                <p className="mt-1">{c.text}</p>
+              )}
+
+              <span className="text-xs text-gray-400 block mt-1">
+                {new Date(c.date).toLocaleString()}
+              </span>
+
+              {/* Reactions */}
+              <div className="flex gap-2 mt-2 text-sm">
+                <button onClick={() => handleReaction(c.id, "fire")}>🔥 {c.reactions?.fire || 0}</button>
+                <button onClick={() => handleReaction(c.id, "lol")}>😂 {c.reactions?.lol || 0}</button>
+                <button onClick={() => handleReaction(c.id, "sad")}>😢 {c.reactions?.sad || 0}</button>
+                <button onClick={() => handleReaction(c.id, "like")}>👍 {c.reactions?.like || 0}</button>
+              </div>
+
+              {/* Replies */}
+              <details className="mt-2">
+                <summary className="cursor-pointer flex items-center gap-1 text-sm text-blue-400">
+                  <MessageCircle size={14} /> Reply
+                </summary>
+                <div className="mt-2">
+                  <ReplyForm onReply={(txt) => handleReply(c.id, txt)} />
+                  {c.replies?.map((r, idx) => (
+                    <p key={idx} className="ml-4 text-gray-300 text-sm mt-1">
+                      <span className="font-semibold text-blue-400">{r.user}: </span>
+                      {r.text}
+                    </p>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 // Reply 
@@ -276,18 +292,17 @@ function ReplyForm({ onReply }) {
   const [reply, setReply] = useState("");
   return (
     <div className="flex gap-2 mt-2">
-    <input
-      value={reply}
-      onChange={(e) => setReply(e.target.value)}
-      placeholder="💭 Write a reply..."
-      className="flex-1 p-2 rounded-lg bg-zinc-800/60 text-white text-sm 
-             border border-transparent 
-             focus:border-blue-500/70 focus:ring-2 focus:ring-blue-500/40 
-             outline-none backdrop-blur-md 
-             transition-all duration-300 placeholder-gray-400
-             hover:scale-[1.01]"
+      <input
+        value={reply}
+        onChange={(e) => setReply(e.target.value)}
+        placeholder="💭 Write a reply..."
+        className="flex-1 p-2 rounded-lg bg-zinc-900/60 text-white text-sm 
+                  border border-transparent 
+                  focus:border-blue-500/70 focus:ring-2 focus:ring-blue-500/40 
+                  outline-none backdrop-blur-md 
+                  transition-all duration-300 placeholder-gray-400
+                  hover:scale-[1.01]"
       />
-
       <button
         onClick={() => {
           onReply(reply);
