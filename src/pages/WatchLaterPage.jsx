@@ -163,7 +163,7 @@ function WatchLaterPage() {
 
 {/* Folder Sections */}
 {Object.entries(folders).map(([folderName, movies]) => (
-  <div key={folderName} className="mb-12 px-10">  
+  <div key={folderName} className="mb-12 px-10">   
     <h2 className="text-xl font-semibold mb-3">📂 {folderName}</h2>
     {movies.length === 0 ? (
       <p className="text-sm text-zinc-400">No movies yet.</p>
@@ -182,3 +182,4 @@ function WatchLaterPage() {
 }
 
 export default WatchLaterPage;
+
