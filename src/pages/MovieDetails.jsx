@@ -171,11 +171,16 @@ function MovieDetails() {
         {/*Comment Box */}
         <div className="mb-4">
           <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Share your thoughts..."
-            className="w-full p-2 rounded bg-zinc-800 text-white"
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          placeholder="Share your thoughts..."
+          className="w-full p-3 rounded-xl bg-zinc-900/60 text-white border border-transparent 
+          focus:border-red-500/80 focus:ring-2 focus:ring-red-500/40 
+          outline-none backdrop-blur-md 
+          transition-all duration-300 placeholder-gray-500
+          hover:scale-[1.01] hover:border-red-500/50"
           />
+
           <div className="flex items-center gap-2 mt-2">
             <label className="flex items-center gap-1 text-sm">
               <input
@@ -271,12 +276,18 @@ function ReplyForm({ onReply }) {
   const [reply, setReply] = useState("");
   return (
     <div className="flex gap-2 mt-2">
-      <input
-        value={reply}
-        onChange={(e) => setReply(e.target.value)}
-        placeholder="Write a reply..."
-        className="flex-1 p-1 rounded bg-zinc-700 text-white text-sm"
+    <input
+      value={reply}
+      onChange={(e) => setReply(e.target.value)}
+      placeholder="💭 Write a reply..."
+      className="flex-1 p-2 rounded-lg bg-zinc-800/60 text-white text-sm 
+             border border-transparent 
+             focus:border-blue-500/70 focus:ring-2 focus:ring-blue-500/40 
+             outline-none backdrop-blur-md 
+             transition-all duration-300 placeholder-gray-400
+             hover:scale-[1.01]"
       />
+
       <button
         onClick={() => {
           onReply(reply);
