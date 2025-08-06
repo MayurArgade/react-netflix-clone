@@ -59,7 +59,7 @@ function WatchLaterPage() {
   };
 
   return (
-   <div className="px-10 py-20 bg-black min-h-screen text-white">
+   <div className="px-10 py-20 bg-[#141414] min-h-screen text-white">
   
   <div className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800/60 
                   flex items-center px-10 py-4 mb-8">
