@@ -61,7 +61,7 @@ function WatchLaterPage() {
   return (
    <div className="px-10 py-20 bg-[#141414] min-h-screen text-white">
   
-  <div className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800/60 
+  <div className="sticky top-0 z-50  bg-[#141414]/80 backdrop-blur-md border-b border-zinc-800/60 
                   flex items-center px-10 py-4 mb-8">
     <h1 className="flex items-center text-3xl md:text-4xl font-bold">
       <img
@@ -74,7 +74,7 @@ function WatchLaterPage() {
   </div>
 
   
-<div className="sticky top-[64px] z-40 bg-black/70 backdrop-blur-sm px-10 py-3 border-b border-zinc-800/50">
+<div className="sticky top-[64px] z-40  bg-[#141414]/70 backdrop-blur-sm px-10 py-3 border-b border-zinc-800/50">
   <div className="flex flex-wrap items-center gap-4">
     <select
       className="p-2 rounded-lg bg-zinc-900/80 text-sm border border-transparent 
